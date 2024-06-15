@@ -1,0 +1,85 @@
+Obs: Ao rodar o back-end, dará erro. Pois é preciso iniciar conexão com o banco no Azure pelo menos uma vez localmente. Logo, ao fazer conexão irá pedir para habilitar o IP no recurso do Azure, para rodar o banco de dados na nuvem.
+
+PureGain
+
+O PureGain é uma empresa grande, que precisa de um sistema para ajudar com o gerenciamento dos produtos. Logo, foi pensado em uma aplicação completa, com: Front-end, Back-end, Banco de dados e um app, para mobile;
+O Front-end foi desenvolvido com React, o Mobile com Android, o Back-end com Springboot e o banco de dados com MySql, utilizando o recurso Banco de Dados SQL do Azure.
+
+Para gerenciamento desses produtos foi pensado em fazer as seguintes funções, no sistema: cadastrar, consultar, deletar e atualizar. E, para saber o status de cada, implementamos um atributo de status, para acompanhá-lo.
+
+Para fazer gestão de usuários ativos e inativos, implementamos um atributo para diferenciá-los, o "adm". Caso seja 1 é ADM, e possui permissão para desativar um usuário, caso seja 0 o usuário não possui permissões.
+
+
+baseUrl: http://localhost:8080/
+
+----------------usuario---------------
+
+função: criar usuario
+endpoint: usuario/create-usuario
+body: {
+    "nome":"string",
+    "sobrenome":"string",
+    "email": "string",
+    "celular": "string",
+    "senha":"string",
+    "adm": 0,
+    "status": "string"
+}
+
+função: consultar usuario
+endpoint: usuario/get?id=$id
+body:
+
+função: consultar todos usuarios
+endpoint: usuario
+body:
+
+função: atualizar usuario
+endpoint: usuario/update-usuario/$id
+body: {
+       "nome":"string",
+    "sobrenome":"string",
+    "email": "string",
+    "celular": "string",
+    "senha":"string",
+    "adm": 0,
+    "status": "string"
+    }
+
+função: deletar usuario
+endpoint: usuario/delete-usuario/$id
+
+-------------produto----------------
+
+função: criar produto
+endpoint: produto/create-produto
+body: {
+    "nome":"string",
+    "preco":"string",
+    "categoria": "string",
+    "objetivo": "string",
+    "descricao":"string",
+    "status": "string"
+}
+
+função: consultar produto
+endpoint: produto/get?id=$id
+body:
+
+função: consultar todos produtos
+endpoint: produto
+body:
+
+função: atualizar produto
+endpoint: produto/update-produto/$id
+body: {
+    "nome":"string",
+    "preco":"string",
+    "categoria": "string",
+    "objetivo": "string",
+    "descricao":"string",
+    "status": "string"
+}
+
+função: deletar produto
+endpoint: produto/delete-produto/$id

@@ -1,0 +1,174 @@
+<html>
+<head>
+<title>CadastroUsuarioScreen.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+.s3 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+CadastroUsuarioScreen.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">br.com.fiap.gs2.Screen</span>
+
+<span class="s1">import androidx.compose.foundation.layout.*</span>
+<span class="s1">import androidx.compose.foundation.shape.RoundedCornerShape</span>
+<span class="s1">import androidx.compose.foundation.text.KeyboardOptions</span>
+<span class="s1">import androidx.compose.material3.Button</span>
+<span class="s1">import androidx.compose.material3.ButtonDefaults</span>
+<span class="s1">import androidx.compose.material3.MaterialTheme</span>
+<span class="s1">import androidx.compose.material3.OutlinedTextField</span>
+<span class="s1">import androidx.compose.material3.OutlinedTextFieldDefaults</span>
+<span class="s1">import androidx.compose.material3.Surface</span>
+<span class="s1">import androidx.compose.material3.Text</span>
+<span class="s1">import androidx.compose.runtime.*</span>
+<span class="s1">import androidx.compose.ui.Alignment</span>
+<span class="s1">import androidx.compose.ui.Modifier</span>
+<span class="s1">import androidx.compose.ui.graphics.Color</span>
+<span class="s1">import androidx.compose.ui.text.input.KeyboardType</span>
+<span class="s1">import androidx.compose.ui.unit.dp</span>
+<span class="s1">import androidx.compose.ui.unit.sp</span>
+<span class="s1">import androidx.navigation.NavHostController</span>
+
+
+<span class="s1">@Composable</span>
+<span class="s0">fun </span><span class="s1">CadastroUsuarioScreen(navController: NavHostController) {</span>
+    <span class="s0">var </span><span class="s1">nome by remember { mutableStateOf(</span><span class="s2">&quot;&quot;</span><span class="s1">) }</span>
+    <span class="s0">var </span><span class="s1">sobrenome by remember { mutableStateOf(</span><span class="s2">&quot;&quot;</span><span class="s1">) }</span>
+    <span class="s0">var </span><span class="s1">email by remember { mutableStateOf(</span><span class="s2">&quot;&quot;</span><span class="s1">) }</span>
+    <span class="s0">var </span><span class="s1">celular by remember { mutableStateOf(</span><span class="s2">&quot;&quot;</span><span class="s1">) }</span>
+    <span class="s0">var </span><span class="s1">senha by remember { mutableStateOf(</span><span class="s2">&quot;&quot;</span><span class="s1">) }</span>
+    <span class="s0">val </span><span class="s1">cor01 = Color(</span><span class="s3">0xff042c3b</span><span class="s1">)</span>
+
+
+    <span class="s1">Surface(</span>
+        <span class="s1">modifier = Modifier.fillMaxSize()</span><span class="s0">,</span>
+        <span class="s1">color = MaterialTheme.colorScheme.background</span>
+    <span class="s1">) {</span>
+        <span class="s1">Column(</span>
+            <span class="s1">modifier = Modifier</span>
+                <span class="s1">.fillMaxSize()</span>
+                <span class="s1">.padding(</span><span class="s3">16</span><span class="s1">.dp)</span><span class="s0">,</span>
+            <span class="s1">verticalArrangement = Arrangement.Center</span><span class="s0">,</span>
+            <span class="s1">horizontalAlignment = Alignment.CenterHorizontally</span>
+        <span class="s1">) {</span>
+            <span class="s1">Text(</span>
+                <span class="s1">text = </span><span class="s2">&quot;CADASTROS&quot;</span><span class="s0">,</span>
+                <span class="s1">Modifier</span>
+                    <span class="s1">.offset(x = </span><span class="s3">2</span><span class="s1">.dp)</span>
+                    <span class="s1">.fillMaxWidth()</span><span class="s0">,</span>
+                <span class="s1">fontSize = </span><span class="s3">24</span><span class="s1">.sp</span>
+            <span class="s1">)</span>
+
+            <span class="s1">Row(</span>
+                <span class="s1">modifier = Modifier.fillMaxWidth()</span><span class="s0">,</span>
+                <span class="s1">horizontalArrangement = Arrangement.SpaceBetween</span><span class="s0">,</span>
+            <span class="s1">) {</span>
+                <span class="s1">OutlinedTextField(</span>
+                    <span class="s1">value = nome</span><span class="s0">,</span>
+                    <span class="s1">onValueChange = { nome = it }</span><span class="s0">,</span>
+                    <span class="s1">label = { Text(</span><span class="s2">&quot;Nome&quot;</span><span class="s1">) }</span><span class="s0">,</span>
+                    <span class="s1">singleLine = </span><span class="s0">true,</span>
+                    <span class="s1">colors = OutlinedTextFieldDefaults.colors(</span>
+                        <span class="s1">focusedBorderColor = Color.Black</span><span class="s0">,</span>
+                        <span class="s1">unfocusedBorderColor = Color.Black</span>
+                    <span class="s1">)</span><span class="s0">,</span>
+                    <span class="s1">modifier = Modifier</span>
+                        <span class="s1">.weight(</span><span class="s3">1f</span><span class="s1">)</span>
+                        <span class="s1">.padding(end = </span><span class="s3">8</span><span class="s1">.dp)</span>
+                <span class="s1">)</span>
+                <span class="s1">OutlinedTextField(</span>
+                    <span class="s1">value = sobrenome</span><span class="s0">,</span>
+                    <span class="s1">onValueChange = { sobrenome = it }</span><span class="s0">,</span>
+                    <span class="s1">label = { Text(</span><span class="s2">&quot;Sobrenome&quot;</span><span class="s1">) }</span><span class="s0">,</span>
+                    <span class="s1">singleLine = </span><span class="s0">true,</span>
+                    <span class="s1">colors = OutlinedTextFieldDefaults.colors(</span>
+                        <span class="s1">focusedBorderColor = Color.Black</span><span class="s0">,</span>
+                        <span class="s1">unfocusedBorderColor = Color.Black</span>
+                    <span class="s1">)</span><span class="s0">,</span>
+                    <span class="s1">modifier = Modifier.weight(</span><span class="s3">1f</span><span class="s1">)</span>
+                <span class="s1">)</span>
+            <span class="s1">}</span>
+            <span class="s1">Spacer(modifier = Modifier.height(</span><span class="s3">16</span><span class="s1">.dp))</span>
+            <span class="s1">OutlinedTextField(</span>
+                <span class="s1">value = email</span><span class="s0">,</span>
+                <span class="s1">onValueChange = { email = it }</span><span class="s0">,</span>
+                <span class="s1">label = { Text(</span><span class="s2">&quot;E-mail&quot;</span><span class="s1">) }</span><span class="s0">,</span>
+                <span class="s1">singleLine = </span><span class="s0">true,</span>
+                <span class="s1">colors = OutlinedTextFieldDefaults.colors(</span>
+                    <span class="s1">focusedBorderColor = Color.Black</span><span class="s0">,</span>
+                    <span class="s1">unfocusedBorderColor = Color.Black</span>
+                <span class="s1">)</span><span class="s0">,</span>
+                <span class="s1">keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email)</span><span class="s0">,</span>
+                <span class="s1">modifier = Modifier.fillMaxWidth()</span>
+            <span class="s1">)</span>
+            <span class="s1">Spacer(modifier = Modifier.height(</span><span class="s3">16</span><span class="s1">.dp))</span>
+            <span class="s1">OutlinedTextField(</span>
+                <span class="s1">value = celular</span><span class="s0">,</span>
+                <span class="s1">onValueChange = { celular = it }</span><span class="s0">,</span>
+                <span class="s1">label = { Text(</span><span class="s2">&quot;Celular&quot;</span><span class="s1">) }</span><span class="s0">,</span>
+                <span class="s1">singleLine = </span><span class="s0">true,</span>
+                <span class="s1">colors = OutlinedTextFieldDefaults.colors(</span>
+                    <span class="s1">focusedBorderColor = Color.Black</span><span class="s0">,</span>
+                    <span class="s1">unfocusedBorderColor = Color.Black</span>
+                <span class="s1">)</span><span class="s0">,</span>
+                <span class="s1">keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone)</span><span class="s0">,</span>
+                <span class="s1">modifier = Modifier.fillMaxWidth()</span>
+            <span class="s1">)</span>
+            <span class="s1">Spacer(modifier = Modifier.height(</span><span class="s3">16</span><span class="s1">.dp))</span>
+            <span class="s1">OutlinedTextField(</span>
+                <span class="s1">value = senha</span><span class="s0">,</span>
+                <span class="s1">onValueChange = { senha = it }</span><span class="s0">,</span>
+                <span class="s1">label = { Text(</span><span class="s2">&quot;Insira a senha&quot;</span><span class="s1">) }</span><span class="s0">,</span>
+                <span class="s1">singleLine = </span><span class="s0">true,</span>
+                <span class="s1">colors = OutlinedTextFieldDefaults.colors(</span>
+                    <span class="s1">focusedBorderColor = Color.Black</span><span class="s0">,</span>
+                    <span class="s1">unfocusedBorderColor = Color.Black</span>
+                <span class="s1">)</span><span class="s0">,</span>
+                <span class="s1">keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password)</span><span class="s0">,</span>
+                <span class="s1">modifier = Modifier.fillMaxWidth()</span>
+            <span class="s1">)</span>
+            <span class="s1">Spacer(modifier = Modifier.height(</span><span class="s3">16</span><span class="s1">.dp))</span>
+
+            <span class="s1">Column(</span>
+                <span class="s1">modifier = Modifier</span>
+                    <span class="s1">.offset(y = </span><span class="s3">160</span><span class="s1">.dp)</span>
+                    <span class="s1">.padding(</span><span class="s3">1</span><span class="s1">.dp)</span><span class="s0">,</span>
+                <span class="s1">verticalArrangement = Arrangement.Bottom</span><span class="s0">,</span>
+                <span class="s1">horizontalAlignment = Alignment.CenterHorizontally</span>
+            <span class="s1">) {</span>
+                <span class="s1">Row(</span>
+                    <span class="s1">modifier = Modifier.fillMaxWidth()</span><span class="s0">,</span>
+                    <span class="s1">horizontalArrangement = Arrangement.SpaceBetween</span>
+                <span class="s1">) {</span>
+                    <span class="s1">Button(</span>
+                        <span class="s1">onClick = { navController.navigate(</span><span class="s2">&quot;userList&quot;</span><span class="s1">) }</span><span class="s0">,</span>
+                        <span class="s1">modifier = Modifier.weight(</span><span class="s3">1f</span><span class="s1">)</span><span class="s0">,</span>
+                        <span class="s1">shape = RoundedCornerShape(</span><span class="s3">8</span><span class="s1">.dp)</span><span class="s0">,</span>
+                        <span class="s1">colors = ButtonDefaults.buttonColors(containerColor = cor01)</span><span class="s0">,</span>
+                    <span class="s1">) {</span>
+                        <span class="s1">Text(</span><span class="s2">&quot;Cancelar&quot;</span><span class="s1">)</span>
+                    <span class="s1">}</span>
+                    <span class="s1">Spacer(modifier = Modifier.width(</span><span class="s3">8</span><span class="s1">.dp))</span>
+                    <span class="s1">Button(</span>
+                        <span class="s1">onClick = {  }</span><span class="s0">,</span>
+                        <span class="s1">modifier = Modifier.weight(</span><span class="s3">1f</span><span class="s1">)</span><span class="s0">,</span>
+                        <span class="s1">shape = RoundedCornerShape(</span><span class="s3">8</span><span class="s1">.dp)</span><span class="s0">,</span>
+                        <span class="s1">colors = ButtonDefaults.buttonColors(containerColor = cor01)</span><span class="s0">,</span>
+                    <span class="s1">) {</span>
+                        <span class="s1">Text(</span><span class="s2">&quot;Salvar&quot;</span><span class="s1">)</span>
+                    <span class="s1">}</span>
+                <span class="s1">}</span>
+            <span class="s1">}</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+<span class="s1">}</span>
+</pre>
+</body>
+</html>
